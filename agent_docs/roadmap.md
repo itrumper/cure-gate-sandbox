@@ -25,7 +25,7 @@ Row letters and the Plan column: `agent_docs/agents/workflow.md`, Artifacts (Roa
 
 | Row | Plan | Scope | Exit criterion | Status |
 | -- | -- | -- | -- | -- |
-| A | #11 | One `README.md` sentence (R1). #1–#9 untouched. | R1 holds (`spec #11`); `git diff --name-only main...HEAD` lists nothing outside `README.md`, `agent_docs/roadmap.md` and `agent_docs/plans/` | next |
+| A | #12 | One `README.md` sentence (R1). #1–#9 untouched. | R1 holds (`spec #11`); `git diff --name-only main...HEAD` lists nothing outside `README.md`, `agent_docs/roadmap.md` and `agent_docs/plans/` | active |
 
 ## Decision rights
 
