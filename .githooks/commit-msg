@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+# Refuse a closing keyword with an issue reference: GitHub closes the issue when the commit reaches the
+# default branch. Issues close only through the PR body. The message is checked as git stores it. Git runs this
+# hook before its cleanup in editor mode, so the file then holds the template (English text: another locale is
+# checked with its '#' lines, a false refusal at worst): cut at the scissors line (`git commit -v` diff below it)
+# and skip '#' lines, which git strips. Without a template (`-m`, `-F`) '#' lines are kept and GitHub reads them.
+# 'commit.cleanup' whitespace, verbatim or scissors keeps them in editor mode too, so they are checked then (git passes the
+# hook no cleanup mode, so a `--cleanup=` flag on the command line is not visible here).
+scissors='^# -{24} >8 -{24}$'
+if grep -qE "$scissors|^# Please enter the commit message" "$1"; then
+  case $(git config commit.cleanup 2>/dev/null) in
+    whitespace|verbatim|scissors) text=$(sed -E "/$scissors/,\$d" "$1") ;;
+    *) text=$(sed -E "/$scissors/,\$d" "$1" | sed '/^#/s/.*//') ;;
+  esac
+else
+  text=$(cat "$1")
+fi
+hit=$(printf '%s\n' "$text" | grep -inE '(^|[^[:alnum:]_])(close[sd]?|fix(e[sd])?|resolve[sd]?):?[[:space:]]+(#|[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+#|https://github\.com/[^ ]*/issues/)[0-9]+')
+if [ -n "$hit" ]; then
+  echo "commit-msg: closing keyword with an issue reference:" >&2
+  echo "$hit" >&2
+  echo "Issues close only through the PR body (workflow.md, Commits)." >&2
+  exit 1
+fi
