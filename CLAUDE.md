@@ -14,7 +14,7 @@ Plans: `agent_docs/plans/`. Decisions: `agent_docs/adr/`. Humans: `README.md`.
 Keep this section to commands. No counts or dated measurements: they rot.
 
 ## Workflow
-
+Director: on MacMini1
 Parallel waves: off
 
 ## Invariants
