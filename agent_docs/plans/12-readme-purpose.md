@@ -1,7 +1,7 @@
 # Plan #12: README says what this repo is for
 
 Status: approved 2026-11-11
-Branch: `plan/12-readme-purpose` PR: #<pr> Depends on: none Roadmap: `agent_docs/roadmap.md`, row A
+Branch: `plan/12-readme-purpose` PR: #14 Depends on: none Roadmap: `agent_docs/roadmap.md`, row A
 
 ## Problem
 
