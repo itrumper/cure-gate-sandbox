@@ -1,8 +1,8 @@
-# Roadmap: <title>
+# Roadmap: cure-gate-sandbox
 
-Status: active | done YYYY-MM-DD
-Goal: one or two sentences, in the user's words.
-ADRs: the decisions every plan on this roadmap inherits.
+Status: active
+Goal: The sandbox the cure director's public-tier gate runs against. Its open `O1 case` issues are that gate's fixtures, not work (#11).
+ADRs: none yet (`agent_docs/adr/` holds only the template).
 
 The one living roadmap of this repo: the only agent_docs artifact edited and appended as work lands. The
 planner scopes the next plan from it; the orchestrator ticks the plan's row at plan end. A goal that needs
@@ -15,7 +15,7 @@ workflow.md TDD > Oracles). Agents propose the oracles; the user approves the co
 
 | ID | Outcome | Oracle | Plan |
 | -- | -- | -- | -- |
-| R1 |  | `<kind> <source>` | #<n> |
+| R1 | `README.md` says what this repo is for: the sandbox the cure director's public-tier gate runs against, whose open issues #1–#9 (`O1 case` in their bodies) are that gate's fixtures, not work | `spec #11` | A |
 
 ## Plans
 
@@ -25,7 +25,7 @@ Row letters and the Plan column: `agent_docs/agents/workflow.md`, Artifacts (Roa
 
 | Row | Plan | Scope | Exit criterion | Status |
 | -- | -- | -- | -- | -- |
-| A | #<n> |  |  | done YYYY-MM-DD / active / next / later |
+| A | #11 | One `README.md` sentence (R1). #1–#9 untouched. | R1 holds (`spec #11`); `git diff --name-only main...HEAD` lists nothing outside `README.md`, `agent_docs/roadmap.md` and `agent_docs/plans/` | next |
 
 ## Decision rights
 
@@ -46,7 +46,7 @@ outcome names the baseline the user approves; that baseline is its oracle (`user
 
 | Outcome | Reference | Baseline |
 | -- | -- | -- |
-| R<k> |  | approved YYYY-MM-DD / pending |
+| - | no UI outcome on this roadmap | - |
 
 ## Kill criteria
 
@@ -54,12 +54,14 @@ Per row, the signal that makes the agent stop and ask the user whether to pivot.
 
 | Row | Signal | Ask |
 | -- | -- | -- |
-| #<n> / R<k> |  | pivot, cut, or continue? |
+| A | none: a one-sentence docs change | - |
 
 ## Shared tables
 
 Anything several plans draw from and that changes as they land (a hook list, a unit order, a catalog
 coverage table). Each row names the plan that delivers it.
+
+None yet.
 
 ## Deferred
 
@@ -68,10 +70,27 @@ it is the only record of a deferral (no issue comments), and `git log -p` is its
 
 | Issue | Waits for | Since |
 | -- | -- | -- |
-| #<n> | a named condition, or outranked by <row or issue> | YYYY-MM-DD |
+| #1 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
+| #2 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
+| #3 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
+| #4 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
+| #5 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
+| #6 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
+| #7 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
+| #8 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
+| #9 | the user closes it (a fixture of the public-tier gate, not work: #11) | 2026-11-11 |
 
 ## Change log
 
 One bullet per entry (bare lines render as one paragraph).
 
-- YYYY-MM-DD: what changed and why (a plan finished, a CR re-ordered the rows).
+- 2026-11-11: `/roadmap next` (headless), the first pick on the bare seed (title, goal in #11's words, R1, Deferred filled in): picked A (#11, one README sentence saying what the repo is for), the only open issue that is work. Runner-up: none (with A done and no new issue, the roadmap is done). 9 issues deferred (#1–#9, the gate's fixtures).
+- 2026-11-11: review (roadmap-reviewer, claude-opus-5-5)
+  - 1: accepted
+  - 2: accepted
+  - 3: accepted
+  - 4: accepted
+  - 5: accepted
+  - 6: accepted
+  - 7: accepted
+  - 8: accepted for the condition; rejected the one-range row: `/roadmap next` keeps one Deferred row per issue
